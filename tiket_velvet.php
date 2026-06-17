@@ -35,4 +35,8 @@ class TiketVelvet extends Tiket {
     public function hitungTotalHarga() {
         return $this->harga + 25000; // Contoh: Tambahan biaya studio Velvet
     }
+
+    public function hitungTotalHarga($jumlah_kursi) {
+    return ($jumlah_kursi * $this->harga) * 1.50;
+    }
 }

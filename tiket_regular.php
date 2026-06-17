@@ -37,4 +37,9 @@ class TiketRegular extends Tiket {
     public function hitungTotalHarga() {
         return $this->harga; // Modifikasi sesuai logika perhitungan hargamu
     }
+
+    public function hitungTotalHarga($jumlah_kursi) {
+    // $this->harga diambil dari properti hargaDasarTiket di kelas induk (Tiket)
+    return $jumlah_kursi * $this->harga; 
+    }
 }

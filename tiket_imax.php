@@ -35,4 +35,8 @@ class TiketIMAX extends Tiket {
     public function hitungTotalHarga() {
         return $this->harga + 15000; // Contoh: Tambahan biaya studio IMAX
     }
+
+    public function hitungTotalHarga($jumlah_kursi) {
+    return ($jumlah_kursi * $this->harga) + 35000;
+    }
 }
