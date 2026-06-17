@@ -13,22 +13,15 @@ class TiketVelvet extends Tiket {
         $this->layananButler = $layananButler;
     }
 
-    // Getter dan Setter untuk bantalSelimutPack
-    public function getBantalSelimutPack() {
-        return $this->bantalSelimutPack;
+    public static function ambilDataSesuaiId($koneksi, $id) {
+    // Query SELECT WHERE untuk mengambil 1 data tiket regular berdasarkan ID
+    $query = "SELECT * FROM tiket WHERE id_tiket = '$id' AND kategori_studio = 'regular'";
+    $result = mysqli_query($koneksi, $query);
+    
+    if ($result && mysqli_num_rows($result) > 0) {
+        return mysqli_fetch_assoc($result);
     }
-
-    public function setBantalSelimutPack($bantalSelimutPack) {
-        $this->bantalSelimutPack = $bantalSelimutPack;
-    }
-
-    // Getter dan Setter untuk layananButler
-    public function getLayananButler() {
-        return $this->layananButler;
-    }
-
-    public function setLayananButler($layananButler) {
-        $this->layananButler = $layananButler;
+    return null;
     }
 
     // Implementasi method abstract dari class Tiket

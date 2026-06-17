@@ -13,27 +13,15 @@ class TiketIMAX extends Tiket {
         $this->efekGerakFitur = $efekGerakFitur;
     }
 
-    // Getter dan Setter untuk kacamata3dId
-    public function getKacamata3dId() {
-        return $this->kacamata3dId;
+    public static function ambilDataSesuaiId($koneksi, $id) {
+    // Query SELECT WHERE untuk mengambil 1 data tiket IMAX berdasarkan ID
+    $query = "SELECT * FROM tiket WHERE id_tiket = '$id' AND kategori_studio = 'imax'";
+    $result = mysqli_query($koneksi, $query);
+    
+    if ($result && mysqli_num_rows($result) > 0) {
+        return mysqli_fetch_assoc($result);
     }
-
-    public function setKacamata3dId($kacamata3dId) {
-        $this->kacamata3dId = $kacamata3dId;
-    }
-
-    // Getter dan Setter untuk efekGerakFitur
-    public function getEfekGerakFitur() {
-        return $this->efekGerakFitur;
-    }
-
-    public function setEfekGerakFitur($efekGerakFitur) {
-        $this->efekGerakFitur = $efekGerakFitur;
-    }
-
-    // Implementasi method abstract dari class Tiket
-    public function hitungTotalHarga() {
-        return $this->harga + 15000; // Contoh: Tambahan biaya studio IMAX
+    return null;
     }
 
     public function hitungTotalHarga($jumlah_kursi) {

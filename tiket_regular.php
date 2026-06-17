@@ -15,22 +15,15 @@ class TiketRegular extends Tiket {
         $this->lokasiBaris = $lokasiBaris;
     }
 
-    // Getter dan Setter untuk tipeAudio
-    public function getTipeAudio() {
-        return $this->tipeAudio;
+    public static function ambilDataSesuaiId($koneksi, $id) {
+    // Query SELECT WHERE untuk mengambil 1 data tiket regular berdasarkan ID
+    $query = "SELECT * FROM tiket WHERE id_tiket = '$id' AND kategori_studio = 'regular'";
+    $result = mysqli_query($koneksi, $query);
+    
+    if ($result && mysqli_num_rows($result) > 0) {
+        return mysqli_fetch_assoc($result);
     }
-
-    public function setTipeAudio($tipeAudio) {
-        $this->tipeAudio = $tipeAudio;
-    }
-
-    // Getter dan Setter untuk lokasiBaris
-    public function getLokasiBaris() {
-        return $this->lokasiBaris;
-    }
-
-    public function setLokasiBaris($lokasiBaris) {
-        $this->lokasiBaris = $lokasiBaris;
+    return null;
     }
 
     // Implementasi method abstract dari class Tiket (contoh wajib jika ada method abstract)
