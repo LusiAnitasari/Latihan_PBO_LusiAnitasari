@@ -42,4 +42,8 @@ class TiketRegular extends Tiket {
     // $this->harga diambil dari properti hargaDasarTiket di kelas induk (Tiket)
     return $jumlah_kursi * $this->harga; 
     }
+
+    public function tampilkanFasilitasUnik() {
+    return "Tipe Audio: " . $this->tipeAudio . ", Lokasi Baris: " . $this->lokasiBaris;
+    }
 }

@@ -39,4 +39,8 @@ class TiketIMAX extends Tiket {
     public function hitungTotalHarga($jumlah_kursi) {
     return ($jumlah_kursi * $this->harga) + 35000;
     }
+
+    public function tampilkanFasilitasUnik() {
+    return "ID Kacamata 3D: " . $this->kacamata3dId . ", Fitur Efek Gerak: " . $this->efekGerakFitur;
+    }
 }
